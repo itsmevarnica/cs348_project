@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <form action="/book/return/{{ loan_id }}" method="post">
+        <p>Are you sure you want to return this book?</p>
+        <input type="hidden" name="loan_id" value="{{ loan_id }}">
+        <input type="submit" value="Return Book">
+    </form>
+</body>
+</html>

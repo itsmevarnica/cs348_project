@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Books</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #232323;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background-color: #333;
+        }
+        .navbar a, .navbar input {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar input {
+            padding: 0.5em;
+            background: transparent;
+            border: 1px solid white;
+            color: currentColor;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 0.5em;
+        }
+        table {
+            border: 1px solid white;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+        th {
+            background-color: #4CAF50;
+            text-align: left;
+        }
+        .search-form {
+            margin-bottom: 1em;
+        }
+        .nav-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">LMSSYSTEMS</a>
+        <div>
+            <a href="/">HOME</a>
+            <a href="/books">VIEW BOOKS</a>
+            <a href="/about">ABOUT US</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>List of Books</h1>
+        <form class="search-form" action="{{ url_for('view_books') }}" method="get">
+            <input type="text" name="search_title" placeholder="Search by title..." value="{{ search_title }}">
+            <input type="text" name="search_author" placeholder="Search by author..." value="{{ search_author }}">
+            <input type="text" name="search_category" placeholder="Search by category..." value="{{ search_category }}">
+            <input type="text" name="search_status" placeholder="Search by status..." value="{{ search_status }}">
+            <button type="submit">Search</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.category }}</td>
+                    <td>{{ book.status }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No books found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/add_borrower_form">Add Borrower</a>
+            <!-- Add other necessary links -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #232323;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: #333;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 24px;
+        }
+        .navbar div a {
+            margin: 0 10px;
+        }
+        .centered-text {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            text-transform: uppercase;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">LMSystem</a>
+        <div>
+            <a href="/">Home</a>
+            <a href="/books">View Books</a>
+            <a href="/about">About Us</a>
+        </div>
+    </nav>
+    <div class="centered-text">
+        <div>Library Management System</div>
+        <button class="btn" onclick="location.href='/add_borrower_form'">Add Borrower</button>
+        <button class="btn" onclick="location.href='/delete_borrower_form'">Delete Borrower</button>
+        <button class="btn" onclick="location.href='/update_borrower_form'">Update Borrower</button>
+        <button class="btn" onclick="location.href='/borrowers'">List of Borrowers</button>
+    </div>
+</body>
+</html>

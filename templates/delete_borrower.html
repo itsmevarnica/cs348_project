@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Borrower</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #232323;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background-color: #333;
+        }
+        .navbar a, .navbar input {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar input {
+            padding: 0.5em;
+            background: transparent;
+            border: 1px solid white;
+            color: currentColor;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 0.5em;
+        }
+        form {
+            max-width: 300px;
+            margin: auto;
+        }
+        label {
+            text-align: left;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            padding: 0.5em 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">LMSSYSTEMS</a>
+        <div>
+            <a href="/">HOME</a>
+            <a href="/books">VIEW BOOKS</a>
+            <a href="/about">ABOUT US</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>DELETE BORROWER</h1>
+        <form method="post" action="{{ url_for('delete_borrower') }}">
+            <div>
+                <label for="borrower_id">Borrower ID:</label>
+                <input type="number" id="borrower_id" name="borrower_id" required>
+            </div>
+            <input type="submit" value="Delete Borrower">
+        </form>
+    </div>
+    
+    
+</body>
+</html>

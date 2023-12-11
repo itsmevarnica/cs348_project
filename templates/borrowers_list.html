@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Borrowers</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #232323;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background-color: #333;
+        }
+        .navbar a, .navbar input {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar input {
+            padding: 0.5em;
+            background: transparent;
+            border: 1px solid white;
+            color: currentColor;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 0.5em;
+        }
+        table {
+            border: 1px solid white;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+        th {
+            background-color: #4CAF50;
+            text-align: left;
+        }
+        .nav-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">LMSSYSTEMS</a>
+        <div>
+            <a href="/">HOME</a>
+            <a href="/books">VIEW BOOKS</a>
+            <a href="/about">ABOUT US</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>List of Borrowers</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Borrower ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Book Name</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for borrower in borrowers %}
+                <tr>
+                    <td>{{ borrower.borrower_id }}</td>
+                    <td>{{ borrower.name }}</td>
+                    <td>{{ borrower.email }}</td>
+                    <td>{{ borrower.phone }}</td>
+                    <td>{{ borrower.book_name or 'No book issued' }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No borrowers found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
