@@ -266,5 +266,10 @@ def update_borrower():
     return redirect(url_for('list_borrowers'))
 
 
+@app.route('/about')
+def about():
+    return render_template('aboutus.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
